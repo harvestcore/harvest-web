@@ -1,9 +1,9 @@
 <?php
-  require_once('connect.php');
+  require_once('../login/connect.php');
 
   session_start();
   if(!$_SESSION['isLogged']) {
-    header("location:login.php"); 
+    header("location: ../login/login.php"); 
     die(); 
   }
 
@@ -25,17 +25,16 @@
 <html>
 <head>
 	<title>SWAP</title>
-  <link rel="icon" type="image/png" href="images/icon.png" />
+  <link rel="icon" type="image/png" href="../images/icon.png" />
 </head>
 <body>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="styles.css">
-
-	<form action="logout.php" align="right">
+	<link rel="stylesheet" type="text/css" href="../styles/styles.css">
+  <br>
+  <hr>
+	<form action="../login/logout.php" align="right">
     <input class="button" type="submit" value="Log out">
   </form>
-
-  
 </body>
 </html>

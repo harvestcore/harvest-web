@@ -50,6 +50,7 @@ body {
     border: 2px solid green;
     background: #ffe;
     border-radius: 5px;
+    display: inline-block;
 }
 a {
     display: block;
@@ -135,4 +136,16 @@ hr {
     margin-right: 100px;
     border-style: inset;
     border-width: 1px;
+}
+
+.wrapper {
+  text-align: center;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+#centerdiv {
+  margin: 0 auto;
 }
