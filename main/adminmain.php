@@ -142,6 +142,7 @@
     </form>
     <form action="../login/logout.php">
       <span style="float:right;">
+       	User: <?php echo $_SESSION['userloggedin']; ?>
         <input class="button" type="submit" value="Log out">
       </span>
     </form>

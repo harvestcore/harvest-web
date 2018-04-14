@@ -19,9 +19,11 @@
 				} else {
 					$size = '' .$size. ' KBytes';
 				}
-				echo '<tr>';
-				echo '</i></div><td><a href="' .$path. '">' .$files[$i]. '</a></td><td>' .$size. '</td><td>' .$extension. '</td>';
-				echo '</tr>';
+				if (!isset($_POST["type"]) || $_POST["type"] == "all" || $_POST["type"] == $extension) {
+					echo '<tr>';
+					echo '</i></div><td><a href="' .$path. '">' .$files[$i]. '</a></td><td>' .$size. '</td><td>' .$extension. '</td>';
+					echo '</tr>';
+				}
 			}
 		}
 		echo '</table></div>';
@@ -71,6 +73,20 @@
 <body>
 	<br>
 	<h1 align="center">hehexd</h1>
+	
+	<form method="post" align="center">
+		Filter:<br /> 
+		<select name="type">
+			<option value"all" selected="selected">all</option>
+			<option value="txt">txt</option>
+			<option value="jpg">jpg</option>
+			<option value="png">png</option>
+			<option value="gif">gif</option>
+			<option value="mp3">mp3</option>
+			<option value="mp4">mp4</option>
+		</select>
+		<input class="button" type="submit" value="submit">
+	</form>
 	<br>
 	<?php drawtable(); ?>
 	<br>
@@ -81,5 +97,6 @@
     <form action="../index.html" align="center">
       <input class="bgbutton bgbutton1" type="submit" value="Index">
     </form>
+  
 </body>
 </html>

@@ -14,6 +14,7 @@
 			$_POST['username'] = $username;
 			$_POST['password'] = $password;
 			$_SESSION['userLoggedIn'] = TRUE;
+			$_SESSION['userloggedin'] = $username;
 		} else {
 			$failure = TRUE;
 		}
