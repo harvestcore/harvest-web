@@ -24,7 +24,7 @@
 	}
 
 	if ($registersuccess == TRUE) {
-		header('location: ../login.php');
+		header('location: login.php');
 	}
 ?>
 
@@ -33,14 +33,13 @@
 <head>
 	<title>User registration</title>
 	<link rel="icon" type="image/png" href="../images/icon.png" />
+	<link rel="stylesheet" type="text/css" href="../styles/styles.css">
 </head>
 <body>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="../styles/styles.css">
-
 	<?php if ($registersuccess){ ?><div class="alert alert-success" role="alert"> User registration successful. </div> <?php $registersuccess = FALSE; } ?>
 	<?php if ($registerfailed){ ?><div class="alert alert-danger" role="alert"> User registration failed. </div> <?php $registerfailed = FALSE; } ?>
+	
+	<br><br>
 	
 	<form method="POST" align="center">
 		<h2>Please register</h2>
@@ -51,6 +50,7 @@
 	</form>
 	<hr>
 	<form action="login.php" align="center">
+		<br>
 		<input class="button1" type="submit" value="Login">
 	</form>
 	<form action="../index.html" align="center">

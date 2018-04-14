@@ -1,7 +1,11 @@
 body {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #eee;
+	padding-bottom: 20px;
+	background-image:url('../images/fondo.jpg');
+	background-repeat: repeat;
+	color: #000000;
+	font-size: 10px;
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 .form-signin {
@@ -26,7 +30,7 @@ body {
      -moz-box-sizing: border-box;
           box-sizing: border-box;
   padding: 10px;
-  font-size: 15px;
+  font-size: 12px;
 }
 
 .form-signin .form-control:focus {
@@ -52,23 +56,11 @@ body {
     border-radius: 5px;
     display: inline-block;
 }
-a {
-    display: block;
-    width: 100%;
-    line-height: 2em;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-}
-a:hover {
-    color: red;
-    background: #eff;
-}
 
 #servers {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+	width: auto
 }
 
 #servers td, #servers th {
@@ -76,23 +68,47 @@ a:hover {
     padding: 8px;
 }
 
-#servers tr:nth-child(even){background-color: #f2f2f2;}
+#servers tr:nth-child(even){
+	background-color: #f2f2f2;
+}
 
-#servers tr:hover {background-color: #ddd;}
+#servers tr:hover {
+	background-color: #ddd;
+}
 
 #servers th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #bc0000;
+    background-color: #4C5AAF;
     color: white;
 }
 
 .button {
-    background-color: #bc0000;
+    background-color: #4C5AAF;
     border: none;
     color: white;
     padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    border-radius: 8px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.button:hover {
+    background-color: #4C5AAF;
+    color: white;
+}
+
+.button1 {
+    background-color: #4C5AAF;
+    border: none;
+    color: white;
+    padding: 15px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -103,28 +119,8 @@ a:hover {
     transition-duration: 0.4s;
 }
 
-.button:hover {
-    background-color: #bc0000;
-    color: white;
-}
-
-.button1 {
-    background-color: #bc0000;
-    border: none;
-    color: white;
-    padding: 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 15px;
-    border-radius: 8px;
-    margin: 4px 2px;
-    cursor: pointer;
-    transition-duration: 0.4s;
-}
-
 .button1:hover {
-    background-color: #bc0000;
+    background-color: #4C5AAF;
     color: white;
 }
 
@@ -148,4 +144,154 @@ hr {
 
 #centerdiv {
   margin: 0 auto;
+}
+
+#footer {
+	height: 50px;
+  	line-height: 50px;
+	width: 100%;
+	position: relative;
+}
+
+.finpag p {
+	display: inline-block;
+    vertical-align: top;
+}
+
+table, th, td {
+    padding: 5px;
+}
+
+th, td {
+	text-align: center;
+	border: 1px solid #000000;
+	background-color: #C9C9C9;
+	font-size: 12px;
+}
+
+td:hover {
+	background-color: #ACACAC;
+	color: #000000;
+}
+
+#servers a:link {
+    color: #000000;
+}
+
+#servers a:visited {
+    color: #000000;
+}
+
+#servers a:hover {
+    color: #000000;
+}
+
+#servers a:active {
+    color: #000000;
+}
+
+h1 {
+	color: ghostwhite;
+	font-size: 30px;
+}
+
+h2 {
+	color: ghostwhite;
+	font-size: 25px;
+}
+
+h3 {
+	color: ghostwhite;
+	font-size: 15px;
+}
+
+p {
+	color: ghostwhite;
+	font-size: 11px;
+}
+
+/*-----------------------------------------------------*/
+.topnav {
+  position: relative;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4C5AAF;
+  color: white;
+}
+
+.topnav-centered a {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.topnav-right {
+  float: right;
+}
+
+/* Responsive navigation menu (for mobile devices) */
+@media screen and (max-width: 600px) {
+  .topnav a, .topnav-right {
+    float: none;
+    display: block;
+  }
+  
+  .topnav-centered a {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+}
+
+/*-----------------------------------------------------*/
+
+#logo {
+	background:url('../images/logo2.png');
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 721px;
+	height: 433px;
+	margin-top: -216px;
+	margin-left: -360px;
+}
+
+#filter {
+	color: ghostwhite;
+	font-size: 15px;
+}
+
+#uploadfile {
+	color: ghostwhite;
+	font-size: 15px;
+}
+
+#contact a:link {
+	color: ghostwhite;
+	font-size: 15px;
+}
+
+#contact a:visited {
+    color: ghostwhite;
+	font-size: 15px;
 }

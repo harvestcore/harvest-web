@@ -1,41 +1,41 @@
 <?php
 	require_once('../login/connect.php');
-
+	require('../utils/utils.php');
 	session_start();
+
 	if(!$_SESSION['isLogged']) {
 		header("location: ../login/login.php"); 
 		die(); 
 	}
+	
+	function drawServersTable() {
+		require('../login/connect.php');
+		
+		$query = "SELECT id, name, ip FROM servers";
+		$tabla = mysqli_query($connection, $query);
 
-	$query = "SELECT id, name, ip FROM servers";
-	$tabla = mysqli_query($connection, $query);
-
-	echo '<br><div><table id="servers" border=1px style="width:500px" align="center">';  // opening table tag
-	echo '<th><div align="center">Server name</th><th><div align="center">IP</th>'; //table headers
-	while($data = mysqli_fetch_array($tabla))
-	{
-		echo '<tr>'; // printing table row
-		echo '</i></div></td><td><div align="center">'.$data['name'].'</div></td><td><div align="center">'.$data['ip'].'</div></td>'; // we are looping all data to be printed till last row in the table
-		echo '</tr>'; // closing table row
+		echo '<br><div><table id="servers" border=1px align="center">';
+		echo '<th><div align="center">Server name</th><th><div align="center">IP</th>';
+		while($data = mysqli_fetch_array($tabla)) {
+			echo '<tr>';
+			echo '</i></div></td><td><div align="center">'.$data['name'].'</div></td><td><div align="center">'.$data['ip'].'</div></td>';
+			echo '</tr>';
+		}
+		echo '</table></div>';
 	}
-	echo '</table></div>';  //closing table tag
+
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>SWAP</title>
-  <link rel="icon" type="image/png" href="../images/icon.png" />
+	<title>Servers</title>
+	<link rel="icon" type="image/png" href="../images/icon.png" />
+	<link rel="stylesheet" type="text/css" href="../styles/styles.css">
 </head>
 <body>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="../styles/styles.css">
-  <br>
-  <hr>
-	<form action="../login/logout.php" align="right">
-		User: <?php echo $_SESSION['userloggedin']; ?>
-		<input class="button" type="submit" value="Log out">
-	</form>
+	<?php drawTopBar(); ?>
+	<br>
+	<?php drawServersTable(); ?>
 </body>
 </html>

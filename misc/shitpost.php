@@ -1,32 +1,9 @@
-<?php 
-	function drawtable() {
-		$dir_path = "shitpost";
-		if (is_dir($dir_path)) {
-			$files = scandir($dir_path);
-		}
-
-		echo '<div><table align="center">';  // opening table tag
-		echo '<th><div align="center">File</th><th><div align="center">Size</th><th><div align="center">Type</th>'; //table headers
-		for ($i = 0; $i < sizeof($files); $i++) {
-			if ($files[$i] != '.' && $files[$i] != '..') {
-				$path = '' .$dir_path. '/' .$files[$i]. '';
-				$sizefull = filesize($path) / 1024;
-				$size = round($sizefull, 2);
-				$extension = pathinfo($path,PATHINFO_EXTENSION);
-				if ($size > 1024) {
-					$size = round($size / 1024, 2);
-					$size = '' .$size. ' MBytes';
-				} else {
-					$size = '' .$size. ' KBytes';
-				}
-				if (!isset($_POST["type"]) || $_POST["type"] == "all" || $_POST["type"] == $extension) {
-					echo '<tr>';
-					echo '</i></div><td><a href="' .$path. '">' .$files[$i]. '</a></td><td>' .$size. '</td><td>' .$extension. '</td>';
-					echo '</tr>';
-				}
-			}
-		}
-		echo '</table></div>';
+<?php
+	require('../utils/utils.php');
+	session_start();
+	if(!$_SESSION['isLogged'] || !$_SESSION['isAdmin']) {
+		header("location: ../main/homepage.php"); 
+		die(); 
 	}
 ?>
 
@@ -35,68 +12,41 @@
 <head>
 	<title>Meems</title>
 	<link rel="icon" type="image/png" href="../images/icon.png"/>
-	<link rel="stylesheet" type="text/css" href="../styles/stylesmisc.css">
+	<link rel="stylesheet" type="text/css" href="../styles/styles.css">
 </head>
-<style type="text/css">
-	.bgbutton {
-	    background-color: #4CAF50; /* Green */
-	    border: none;
-	    color: #000000;
-	    padding: 10px 20px;
-	    text-align: center;
-	    text-decoration: none;
-	    display: inline-block;
-	    font-size: 12px;
-	    margin: 4px 2px;
-	    cursor: pointer;
-	    font-family: "Courier New";
-	}
 
-	.bgbutton1 {
-	    color: #000000;
-	    font-size: 12px;
-	    text-align: center;
-	    background-color: #000000; 
-	    color: #00ff00; 
-	    border: 1px solid #00ff00;
-	}
-
-	.bgbutton1:hover {
-	    color: #00ff00;
-	    font-size: 12px;
-	    text-align: center;
-	    background-color: #00ff00; 
-	    color: #000000; 
-	    border: 1px solid #00ff00;
-	}
-</style>
 <body>
+	<?php drawTopBar(); ?>
+
 	<br>
 	<h1 align="center">hehexd</h1>
-	
+	<br>	
 	<form method="post" align="center">
-		Filter:<br /> 
-		<select name="type">
-			<option value"all" selected="selected">all</option>
-			<option value="txt">txt</option>
-			<option value="jpg">jpg</option>
-			<option value="png">png</option>
-			<option value="gif">gif</option>
-			<option value="mp3">mp3</option>
-			<option value="mp4">mp4</option>
-		</select>
-		<input class="button" type="submit" value="submit">
+		<div id="filter">
+			<b>Filter:</b>
+			<select name="type">
+				<option value"all" selected="selected">all</option>
+				<option value="txt">txt</option>
+				<option value="jpg">jpg</option>
+				<option value="png">png</option>
+				<option value="gif">gif</option>
+				<option value="mp3">mp3</option>
+				<option value="mp4">mp4</option>
+			</select>
+			<input type="submit" value="Submit">
+		</div>
 	</form>
+	
 	<br>
-	<?php drawtable(); ?>
-	<br>
-
-	<form action="misc.php" align="center">
-      <input class="bgbutton bgbutton1" type="submit" value="Misc">
-    </form>
-    <form action="../index.html" align="center">
-      <input class="bgbutton bgbutton1" type="submit" value="Index">
-    </form>
-  
+	<?php drawFilesTable(); ?>
+	<br><br>
+	
+	<form enctype="multipart/form-data" action="uploadfile.php" method="POST" align="center">
+		<div id="uploadfile">Select file to upload:
+			<input type="file" name="fileToUpload" id="fileToUpload" value="File">
+			<input type="submit" value="Upload" name="submit">
+    	</div>
+	</form>
+	<br><br>
 </body>
 </html>
