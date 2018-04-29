@@ -1,8 +1,9 @@
 <?php
+	require_once('../login/connect.php');
 	require('../utils/utils.php');
 	session_start();
-	if(!$_SESSION['isLogged'] || !$_SESSION['isAdmin']) {
-		header("location: ../main/homepage.php"); 
+	if(!$_SESSION['isLogged'] && !$_SESSION['isAdmin']) {
+		header("location: ../login/login.php"); 
 		die(); 
 	}
 ?>

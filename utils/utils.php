@@ -25,6 +25,7 @@
 
 			//<!-- Right-aligned links -->
 			echo '<div class="topnav-right">';
+				echo '<a href="../main/twitch.php">Twitch</a>';
 				echo '<a href="../main/contact.php">Contact</a>';
 				if (!$_SESSION['userloggedin']) {
 					echo '<a href="../login/login.php">Login</a>';

@@ -4,8 +4,8 @@
 
 	session_start();
 
-	if(!$_SESSION['isLogged'] || !$_SESSION['isAdmin']) {
-		header("location: ../index.html"); 
+	if(!$_SESSION['isAdmin']) {
+		header("location: ../main/homepage.php"); 
 		die(); 
 	}
 
