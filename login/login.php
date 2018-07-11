@@ -32,6 +32,9 @@
 				header('location: ../main/homepage.php');
 			}
 			
+			$sql = "UPDATE login SET conectado='1' WHERE username='$username'";
+			$result = mysqli_query($connection, $sql);
+			
 			$sql = "SELECT * FROM `login` WHERE upload='1' AND username='$username'";
 		    $result = mysqli_query($connection, $sql);
 		    $count = mysqli_num_rows($result);

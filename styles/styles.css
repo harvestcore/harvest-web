@@ -295,3 +295,7 @@ p {
     color: ghostwhite;
 	font-size: 15px;
 }
+
+#filtroArchivos {
+	align-items: center;
+}

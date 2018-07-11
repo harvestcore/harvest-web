@@ -61,7 +61,7 @@
 			
 			if ($permissiontochange == '0' || $permissiontochange == '1') {
 				$sql = "UPDATE login SET upload='$permissiontochange' WHERE id='$idtochange'";
-				$result = mysqli_query($connection, $sql);	
+				$result = mysqli_query($connection, $sql);
 			}
 		}
 	}

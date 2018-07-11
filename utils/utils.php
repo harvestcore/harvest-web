@@ -22,6 +22,8 @@
 		
 			echo '<a href="../misc/shitpost.php">Repo</a>';
 			echo '<a href="../misc/misc.php">Specs</a>';
+			echo '<a href="../misc/chat.php">Chat</a>';
+			echo '<a>Users online: ' . getUsuariosConectados() . '</a>';
 
 			//<!-- Right-aligned links -->
 			echo '<div class="topnav-right">';
@@ -54,7 +56,7 @@
 				$sizefull = filesize($path) / 1024;
 				$size = round($sizefull, 2);
 				$extension = pathinfo($path,PATHINFO_EXTENSION);
-				$lastmodification = date("F d Y H:i:s.", filemtime($path));
+				$lastmodification = date("F d Y H:i:s", filemtime($path));
 				if ($size > 1024) {
 					$size = round($size / 1024, 2);
 					$size = '' .$size. ' MBytes';
@@ -69,5 +71,29 @@
 			}
 		}
 		echo '</table></div>';
+	}
+
+	function formatearFecha($fecha) {
+		return date('H:i', strtotime($fecha));
+	}
+
+	function getUsuariosConectados() {
+		include '../login/connect.php';
+		
+		$sql = "SELECT * FROM `login` WHERE conectado='1'";
+		$result = mysqli_query($connection, $sql);
+		$usuariosConectados = mysqli_num_rows($result);
+		if (!$result)
+			$usuariosConectados = "xd";
+		return $usuariosConectados;
+	}
+
+	function limpiarChat() {
+		include '../login/connect.php';
+		
+		if (getUsuariosConectados() == 0) {
+			$sql = "DELETE FROM `chat`";
+			$result = mysqli_query($connection, $sql);
+		}
 	}
 ?>

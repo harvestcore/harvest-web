@@ -6,7 +6,7 @@
 	<head>
 		<title>Server specs</title>
 		<link rel="stylesheet" type="text/css" href="../styles/styles.css">
-		<link rel="icon" type="image/png" href="../images/icon.png" />
+		<link rel="icon" type="image/png" href="../images/icon.png">
 	</head>
 
 	<body>

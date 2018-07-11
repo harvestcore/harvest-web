@@ -1,0 +1,52 @@
+#chatContainer {
+	text-align: center;
+	width: 60%;
+	background: #fff;
+	margin: 50 auto;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+#chatHeader {
+	align-content: center;
+}
+
+#chatHeader h3 {
+	color: black;
+	font-size: 17px;
+}
+
+#chatMesagges {
+	width: 100%;
+	margin-bottom: 10px;
+	border-bottom: 1px solid silver;
+	font-weight: bold;
+	font-family: 'Consolas';
+	font-size: 12px;
+}
+
+input[type='text'] {
+	width: 100%;
+	height: 40px;
+	border: 1px solid gray;
+	border-radius: 5px;
+}
+
+input[type='submit'] {
+	width: 100%;
+	height: 40px;
+	border: 1px solid gray;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+textarea {
+	width: 100%;
+	height: 40px;
+	border: 1px solid gray;
+	border-radius: 5px;
+}
+
+input, textarea {
+	margin-bottom: 3px;
+}

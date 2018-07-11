@@ -8,7 +8,6 @@
 	}
 ?>
 
-<!DOCTYPE html>
 <html>
 <head>
 	<title>Meems</title>
@@ -21,22 +20,24 @@
 
 	<br>
 	<h1 align="center">hehexd</h1>
-	<br>	
-	<form method="post" align="center">
-		<div id="filter">
-			<b>Filter:</b>
-			<select name="type">
-				<option value"all" selected="selected">all</option>
-				<option value="txt">txt</option>
-				<option value="jpg">jpg</option>
-				<option value="png">png</option>
-				<option value="gif">gif</option>
-				<option value="mp3">mp3</option>
-				<option value="mp4">mp4</option>
-			</select>
-			<input type="submit" value="Submit">
-		</div>
-	</form>
+	<br>
+	<div id="filtroArchivos" align="center">
+		<form method="post">
+			<div id="filter">
+				<b>Filter:</b>
+				<select name="type">
+					<option value"all" selected="selected">all</option>
+					<option value="txt">txt</option>
+					<option value="jpg">jpg</option>
+					<option value="png">png</option>
+					<option value="gif">gif</option>
+					<option value="mp3">mp3</option>
+					<option value="mp4">mp4</option>
+				</select>
+				<input type="submit" value="Submit">
+			</div>
+		</form>
+	</div>
 	
 	<br>
 	<?php drawFilesTable(); ?>
