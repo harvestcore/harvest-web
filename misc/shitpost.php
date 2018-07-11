@@ -27,12 +27,13 @@
 				<b>Filter:</b>
 				<select name="type">
 					<option value"all" selected="selected">all</option>
-					<option value="txt">txt</option>
-					<option value="jpg">jpg</option>
-					<option value="png">png</option>
-					<option value="gif">gif</option>
-					<option value="mp3">mp3</option>
-					<option value="mp4">mp4</option>
+					<?php
+						$extensiones = getAllExtensions();
+						foreach ($extensiones as $ext) {
+							if (!is_int($ext))
+								echo '<option value="' . $ext . '">' . $ext . '</option>';
+						}
+					?>
 				</select>
 				<input type="submit" value="Submit">
 			</div>

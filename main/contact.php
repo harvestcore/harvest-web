@@ -19,8 +19,7 @@
 		<h3>Website by HarvestCore.</h3>
 		<h3>Email: <a href="mailto:aagomezmm@gmail.com">aagomezmm@gmail.com</a></h3>
 		<h3>GitHub: <a href="https://github.com/harvestcore">github.com/harvestcore</a></h3>
-		<h3>v1.1</h3>
+		<h3>v1.2</h3>
 	</div>
-		
 </body>
 </html>

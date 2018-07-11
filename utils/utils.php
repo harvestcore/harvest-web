@@ -42,6 +42,28 @@
 		echo "<script type='text/javascript'>alert('$msg');</script>";
 	}
 
+	function getAllExtensions() {
+		$dir_path = "shitpost";
+		if (is_dir($dir_path)) {
+			$files = scandir($dir_path);
+		}
+		
+		$extensiones = array(sizeof($files));
+		for ($i = 0; $i < sizeof($files); $i++) {
+			if ($files[$i] != '.' && $files[$i] != '..') {
+				$path = '' .$dir_path. '/' .$files[$i]. '';
+				$sizefull = filesize($path) / 1024;
+				$size = round($sizefull, 2);
+				$ext = pathinfo($path,PATHINFO_EXTENSION);
+				$extensiones[$i] = $ext;
+			}
+		}
+		
+		$extensiones = array_unique($extensiones);
+		
+		return $extensiones;		
+	}
+
 	function drawFilesTable() {
 		$dir_path = "shitpost";
 		if (is_dir($dir_path)) {
