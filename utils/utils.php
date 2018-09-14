@@ -38,10 +38,6 @@
 		echo '</div>';
 	}
 
-	function alert($msg) {
-		echo "<script type='text/javascript'>alert('$msg');</script>";
-	}
-
 	function getAllExtensions() {
 		$dir_path = "shitpost";
 		if (is_dir($dir_path)) {

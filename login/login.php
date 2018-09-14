@@ -1,5 +1,6 @@
 <?php
 	require_once('connect.php');
+	require('../utils/utils.php');
 	session_start();
 
 	if (isset($_POST) & !empty($_POST)) {
@@ -61,7 +62,7 @@
 	<br><br>
 	<form method="POST" align="center">
 		<h2>Please log in</h2>
-		<input type="text" name="username" placeholder="Username" required><br>
+		<input type="text" name="username" placeholder="Username" required><br><br>
 		<input type="password" name="password" placeholder="Password" required><br>
 		<br>
 		<input class="button1" type="submit" value="Login">

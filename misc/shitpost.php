@@ -1,6 +1,7 @@
 <?php
 	require_once('../login/connect.php');
 	require('../utils/utils.php');
+	require('../utils/shitpostengine.php');
 	session_start();
 	if(!$_SESSION['isLogged'] && !$_SESSION['isAdmin']) {
 		header("location: ../login/login.php"); 
@@ -42,6 +43,7 @@
 	
 	<br>
 	<?php drawFilesTable(); ?>
+	<?php sincronizarBD(); ?>
 	<br><br>
 	
 	<form enctype="multipart/form-data" action="uploadfile.php" method="POST" align="center">
